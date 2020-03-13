@@ -1,0 +1,147 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://www.semanticweb.org/nathalie/ontologies/cinemaTP#>
+
+1. l’ensemble des films s’étant déroulés dans un lieu ayant des coordonnées GPS.
+
+SELECT ?nomfilm ?gps
+WHERE {
+  ?film rdf:type ?classFilm.
+  ?classFilm rdfs:label "film"@fr.
+  
+  ?film rdfs:label ?nomfilm.
+  ?film :seDerouleA ?lieu.
+  ?lieu :aPourGPS ?gps.
+  
+}
+
+
+2. pour chaque point (coordonnées GPS) le nombre de films et la liste des noms des films s’y étant
+déroulés.
+
+SELECT ?gps group_concat(?nomfilm) count(?film)
+WHERE
+{  
+?film rdf:type ?classFilm.
+  ?classFilm rdfs:label "film"@fr.
+  
+  ?film rdfs:label ?nomfilm.
+  ?film :seDerouleA ?lieu.
+  ?lieu :aPourGPS ?gps.
+} 
+GROUP BY ?gps
+
+3. pour chaque point (coordonnées GPS) le nombre et la liste des noms des films POPULAIRES s’y
+étant déroulés.
+
+SELECT ?gps group_concat(?nomfilm) count(?film)
+WHERE
+{  
+?film rdf:type ?classFilm.
+  ?classFilm rdfs:label "film populaire"@fr.
+  
+  ?film rdfs:label ?nomfilm.
+  ?film :seDerouleA ?lieu.
+  ?lieu :aPourGPS ?gps.
+} 
+GROUP BY ?gps
+
+4. l’ensemble des genres qui peuvent être associés à un film.
+
+SELECT ?genre
+WHERE
+{  
+	?film :aPourGenre ?genre.
+} 
+GROUP BY ?genre
+
+5. pour chaque point (coordonnées GPS) le nombre et la liste des noms des films ROMANTIQUES s’y
+étant déroulés.
+
+SELECT ?gps group_concat(?nomfilm) count(?film)
+WHERE
+{  
+?film rdf:type ?classFilm.
+  ?classFilm rdfs:label "film"@fr.
+?film :aPourGenre :Romance.
+  ?film rdfs:label ?nomfilm.
+  ?film :seDerouleA ?lieu.
+  ?lieu :aPourGPS ?gps.
+} 
+GROUP BY ?gps
+
+les points (coordonnées GPS) où au moins 3 films se sont déroulés.
+
+SELECT ?gps WHERE{
+  {
+SELECT ?gps group_concat(?nomfilm) (count(?film)AS ?number)
+WHERE
+{  
+?film rdf:type ?classFilm.
+  ?classFilm rdfs:label "film"@fr.
+  ?film rdfs:label ?nomfilm.
+  ?film :seDerouleA ?lieu.
+  ?lieu :aPourGPS ?gps.
+} 
+GROUP BY ?gps
+  }FILTER (?number >=3)
+  }
+
+PARTIE 3
+
+2. Faire une requête SPARQL vérifiant si Montpellier a une coordonnée GPS.
+ASK
+ 
+{  
+  :Montpellier :aPourGPS ?gps.
+} 
+
+3. A partir d’une requête UPDATE, mettez à jour la base de connaissances afin d’indiquer que les
+coordonnées GPS de Montpellier sont 43.61092,3.87723. Exécutez une requête select pour vérifier
+que la requête s’est effectuée correctement
+
+INSERT 
+{
+  
+  ?Montpellier :aPourGPS "43.61092,3.87723"^^xsd:string.
+} WHERE {?Montpellier rdfs:label "Montpellier"@fr
+} 
+
+5. Une erreur s’est glissée dans la base de connaissances : le film « Broken English » apparaissant
+comme ayant notamment été tourné en Belgique a en fait été tourné à New-York. Modifiez la base
+de connaissances en fonction. Vérifiez à partir du rendu de visu.html.
+
+DELETE{
+  "Broken English"@fr :seDerouleA ?lieu.
+}
+INSERT{
+   "Broken English"@fr :seDerouleA ?vrailieu.
+}
+WHERE
+{
+  ?vrailieu rdfs:label "New-York"@fr.
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,284 @@
+Question 1 :
+Combien y a-t-il de pièces dans la maison?
+
+
+SELECT (COUNT (?piece) AS ?res)  WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+}
+
+Question 2 :
+
+Combien y a-t-il de personnes dans la maison?
+
+
+SELECT (COUNT (?personne) AS ?res)  WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?personne.
+}
+
+
+Question 3 :
+
+Qui est la victime?
+
+SELECT ?nom WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant false.
+  	?personne rdfs:label ?nom
+}
+
+Question 4 :
+
+Toutes les personnes encore en vie sont considérées suspectes
+
+Donnez la liste des suspects.
+
+SELECT ?nom WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant true.
+  	?personne rdfs:label ?nom
+}
+
+Question 5 :
+
+Dans quelle pièce se situe la victime?
+
+SELECT ?piece WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant false.
+}
+
+Question 6 :
+
+Y a-t-il d'autres personnes dans cette pièce? (tranformez la requête précédante; utilisez ASK)
+
+
+ASK
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant false.
+	?piece :pieceContientPersonne ?suspect.
+  	?suspect :estVivant true.
+
+}
+
+Question 7 :
+
+Listez les personnes dans chaque pièce.
+
+SELECT ?piece group_concat(?nom) WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?suspect.
+  	?suspect :estVivant true.
+  	?suspect rdfs:label ?nom.
+
+} 
+GROUP BY ?piece
+
+Question 8 :
+
+Combien y a-t-il de personnes dans chaque pièce (contenant au moins une personne)?
+
+SELECT ?piece count(?suspect) WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?suspect.
+  	?suspect :estVivant true.
+
+} 
+GROUP BY ?piece
+
+Question 9 :
+
+Quelle(s) pièce(s) contien-nen-t au moins deux personnes? (piste: utilisez la requête précédante comme sous-requête)
+
+SELECT ?piece WHERE
+{
+  {
+SELECT ?piece (count(?suspect) AS ?number) WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?suspect.
+  	?suspect :estVivant true.
+
+} 
+GROUP BY ?piece
+}
+  
+FILTER (?number >= 2)
+}
+
+Question 10 :
+
+Quelle(s) pièce(s) est/sont vide(s)?
+
+SELECT ?piece  WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    NOT EXISTS{?piece :pieceContientPersonne ?per}.
+}  
+
+Question 11 :
+
+La victime a voulu écrire le nom de son assassin sur un cahier avec une plume, mais le pot d'encre s'est renversé et rend le nom du meurtrier en partie illisible.
+
+On déchiffre cependant que son nom de famille ou son prénom finit par 'e.'
+
+Quels sont les suspects restants? (augmentez la requête listant les suspects)
+
+
+SELECT ?nom WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant true.
+  	?personne rdfs:label ?nom.
+  
+	FILTER regex(str(?nom),".e |.e$").
+}
+
+Question 12 :
+
+Le meurtrier n'est pas dans une des pièces voisines à celle où se situe la victime
+
+Qui est par conséquent innoscent?
+
+
+SELECT ?nom WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant false.
+  	?piecevois :aPourPieceVoisine ?piece.
+  	 ?piecevois :pieceContientPersonne ?innoscent.
+  	?innoscent rdfs:label ?nom.
+  	
+}
+
+Question 13 :
+
+Le meurtrier n'est pas dans une des pièces voisines à celle où se situe la victime
+
+Quels sont les suspects restants? (augmentez la requête listant les suspects)
+
+
+SELECT ?nom WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piecemeurtre.
+  	?piecemeurtre :pieceContientPersonne ?mort.
+  	?mort :estVivant false.
+  	NOT EXISTS{?piece :aPourPieceVoisine ?piecemeurtre}. 
+  	?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant true.
+  
+  	?personne rdfs:label ?nom
+    FILTER regex(str(?nom),".e |.e$").
+}
+
+Question 14 :
+
+Un certain nombre d'objets suspects ont été identifiés dans la maison. L'un d'entre eux est l'arme du crime.
+
+Combien y a-t-il d'objets dans la maison?
+
+SELECT (COUNT (?object) AS ?res)  WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+    ?piece :pieceContientObjet ?object.
+}
+
+Question 15 :
+
+L'arme du crime ne se trouve pas dans la pièce où se situe la victime
+
+Quels objets ne peuvent pas être l'arme du crime?
+
+SELECT ?objet WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+  	?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant false.
+  
+  	?piece :pieceContientObjet ?objet.
+}
+
+Question 16 :
+
+Personne ne se situe dans une pièce où a été posée l'arme du crime
+
+Quel objet est l'arme du crime?
+
+
+SELECT ?objet WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+  	NOT EXISTS{?piece :pieceContientPersonne ?personne}.
+  	?piece :pieceContientObjet ?objet.
+}
+
+Question 17 :
+
+Le meurtrier se situe dans une pièce sans objet
+
+Qui est le meurtrier? (augmentez la requête listant les suspects)
+
+SELECT ?nom WHERE
+{
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piece.
+  	<http://www.lamaisondumeurtre.fr/instances#LaMaisonDuMeurtre> :maisonContientPiece ?piecemeurtre.
+  	?piecemeurtre :pieceContientPersonne ?mort.
+  	?mort :estVivant false.
+  	NOT EXISTS{?piece :aPourPieceVoisine ?piecemeurtre}. 
+  	NOT EXISTS{?piece :pieceContientObjet ?objet}.
+  	?piece :pieceContientPersonne ?personne.
+  	?personne :estVivant true.
+  
+  	?personne rdfs:label ?nom.
+     FILTER regex(str(?nom),".e |.e$").
+              
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

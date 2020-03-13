@@ -1,0 +1,374 @@
+@prefix : <http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2> .
+
+<http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_0521fe60_92b4_486d_81fe_f9fb7b672a0e
+:OWLObjectProperty_0521fe60_92b4_486d_81fe_f9fb7b672a0e rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf :OWLObjectProperty_07beb3bc_ff7e_4fb9_8974_4607707dd417 ;
+                                                        rdf:type owl:TransitiveProperty ;
+                                                        rdfs:domain :OWLClass_b651e36a_cd79_40c6_99a9_5b426e6bcd60 ;
+                                                        rdfs:range :OWLClass_b651e36a_cd79_40c6_99a9_5b426e6bcd60 ;
+                                                        rdfs:label "situé dans"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_07beb3bc_ff7e_4fb9_8974_4607707dd417
+:OWLObjectProperty_07beb3bc_ff7e_4fb9_8974_4607707dd417 rdf:type owl:ObjectProperty ;
+                                                        rdfs:label "contient"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_72d0af74_326e_490a_a8df_6b2a4dbcb3da
+:OWLObjectProperty_72d0af74_326e_490a_a8df_6b2a4dbcb3da rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_2c4e1a41_4130_4a42_ae30_4833a0d7ff64 ;
+                                                        rdfs:range :OWLClass_1cbdf6b7_5e47_422e_a094_b684ef64080b ;
+                                                        rdfs:label "vient de"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_917bb239_597f_4289_8d1a_2f3e9b469abe
+:OWLObjectProperty_917bb239_597f_4289_8d1a_2f3e9b469abe rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf :OWLObjectProperty_c2c2b761_cf92_4d70_9fd5_6e7c529e8142 ;
+                                                        rdfs:label "a comme acteur"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_ae61337c_28e1_4c23_8cc2_34f273b684d1
+:OWLObjectProperty_ae61337c_28e1_4c23_8cc2_34f273b684d1 rdf:type owl:ObjectProperty ;
+                                                        rdfs:range :OWLClass_2c4e1a41_4130_4a42_ae30_4833a0d7ff64 ;
+                                                        rdfs:label "a pour nationalité"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_b7988013_850b_4109_ae2a_bc274cde70b8
+:OWLObjectProperty_b7988013_850b_4109_ae2a_bc274cde70b8 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 ;
+                                                        rdfs:range :OWLClass_29128b68_4355_4e49_9fcf_179a56ff297e ;
+                                                        rdfs:label "est réalisé par"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_bafdd03c_b8fd_4f81_a44c_8a557c8c9617
+:OWLObjectProperty_bafdd03c_b8fd_4f81_a44c_8a557c8c9617 rdf:type owl:ObjectProperty ;
+                                                        rdfs:subPropertyOf :OWLObjectProperty_0521fe60_92b4_486d_81fe_f9fb7b672a0e ;
+                                                        rdfs:domain :OWLClass_1cbdf6b7_5e47_422e_a094_b684ef64080b ;
+                                                        rdfs:range :OWLClass_43d1db7b_5b49_46d1_9e74_8f9737477a80 ;
+                                                        rdfs:label "a pour capitale"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_c2c2b761_cf92_4d70_9fd5_6e7c529e8142
+:OWLObjectProperty_c2c2b761_cf92_4d70_9fd5_6e7c529e8142 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_165eeaf3_7606_41b6_8aef_241dc73c65c9 ;
+                                                        rdfs:range :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 ;
+                                                        rdfs:label "joue dans"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLObjectProperty_cdc7f460_d53c_406a_a29a_7f89098501e7
+:OWLObjectProperty_cdc7f460_d53c_406a_a29a_7f89098501e7 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 ;
+                                                        rdfs:range :OWLClass_b651e36a_cd79_40c6_99a9_5b426e6bcd60 ;
+                                                        owl:propertyChainAxiom ( :OWLObjectProperty_cdc7f460_d53c_406a_a29a_7f89098501e7
+                                                                                 :OWLObjectProperty_0521fe60_92b4_486d_81fe_f9fb7b672a0e
+                                                                               ) ;
+                                                        rdfs:label "se déroule dans"@fr .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLDataProperty_046d9ca2_1c7a_4ea8_9792_0f0b225858f9
+:OWLDataProperty_046d9ca2_1c7a_4ea8_9792_0f0b225858f9 rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 ;
+                                                      rdfs:range xsd:decimal ;
+                                                      rdfs:label "a une note"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLDataProperty_99d8808c_3537_4d28_be07_06b544a9a9da
+:OWLDataProperty_99d8808c_3537_4d28_be07_06b544a9a9da rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :personne ;
+                                                      rdfs:range xsd:string ;
+                                                      rdfs:label "a un genre"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLDataProperty_bab5ca2d_194f_4a14_bc12_1ff041f56cf9
+:OWLDataProperty_bab5ca2d_194f_4a14_bc12_1ff041f56cf9 rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 ;
+                                                      rdfs:range xsd:int ;
+                                                      rdfs:label "a une durée"@fr .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_165eeaf3_7606_41b6_8aef_241dc73c65c9
+:OWLClass_165eeaf3_7606_41b6_8aef_241dc73c65c9 rdf:type owl:Class ;
+                                               rdfs:subClassOf :personne ;
+                                               rdfs:label "artiste"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_1cbdf6b7_5e47_422e_a094_b684ef64080b
+:OWLClass_1cbdf6b7_5e47_422e_a094_b684ef64080b rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_b651e36a_cd79_40c6_99a9_5b426e6bcd60 ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :OWLObjectProperty_bafdd03c_b8fd_4f81_a44c_8a557c8c9617 ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_43d1db7b_5b49_46d1_9e74_8f9737477a80
+                                                               ] ;
+                                               owl:disjointWith :OWLClass_43d1db7b_5b49_46d1_9e74_8f9737477a80 ,
+                                                                :OWLClass_ee26ac4e_0882_493a_b9dc_080a0481afdb ;
+                                               rdfs:label "pays"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_29128b68_4355_4e49_9fcf_179a56ff297e
+:OWLClass_29128b68_4355_4e49_9fcf_179a56ff297e rdf:type owl:Class ;
+                                               rdfs:subClassOf :personne ;
+                                               rdfs:label "réalisateur"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_2c4e1a41_4130_4a42_ae30_4833a0d7ff64
+:OWLClass_2c4e1a41_4130_4a42_ae30_4833a0d7ff64 rdf:type owl:Class ;
+                                               rdfs:label "nationalité"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_3cda2b13_806c_4fb8_bded_91a628f29952
+:OWLClass_3cda2b13_806c_4fb8_bded_91a628f29952 rdf:type owl:Class ;
+                                               owl:equivalentClass [ owl:intersectionOf ( :OWLClass_985a07ac_80ca_4b9b_99c2_068392ee5e8a
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :OWLObjectProperty_c2c2b761_cf92_4d70_9fd5_6e7c529e8142 ;
+                                                                                            owl:someValuesFrom :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_165eeaf3_7606_41b6_8aef_241dc73c65c9 ;
+                                               rdfs:label "acteur"@fr ,
+                                                          "actor"@en ,
+                                                          "comédien"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_43d1db7b_5b49_46d1_9e74_8f9737477a80
+:OWLClass_43d1db7b_5b49_46d1_9e74_8f9737477a80 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_b651e36a_cd79_40c6_99a9_5b426e6bcd60 ;
+                                               rdfs:label "ville"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_6586a65e_e610_41df_b66c_1a78ce5867eb
+:OWLClass_6586a65e_e610_41df_b66c_1a78ce5867eb rdf:type owl:Class ;
+                                               owl:equivalentClass [ owl:intersectionOf ( :personne
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :OWLDataProperty_99d8808c_3537_4d28_be07_06b544a9a9da ;
+                                                                                            owl:hasValue "féminin"
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                               rdfs:subClassOf :personne ;
+                                               rdfs:label "femme"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_985a07ac_80ca_4b9b_99c2_068392ee5e8a
+:OWLClass_985a07ac_80ca_4b9b_99c2_068392ee5e8a rdf:type owl:Class ;
+                                               owl:equivalentClass [ owl:intersectionOf ( :personne
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :OWLDataProperty_99d8808c_3537_4d28_be07_06b544a9a9da ;
+                                                                                            owl:hasValue "masculin"
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                               rdfs:subClassOf :personne ;
+                                               rdfs:label "homme"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_b651e36a_cd79_40c6_99a9_5b426e6bcd60
+:OWLClass_b651e36a_cd79_40c6_99a9_5b426e6bcd60 rdf:type owl:Class ;
+                                               rdfs:label "lieu"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_c4f1d55b_1487_484b_9174_883ba0cf4747
+:OWLClass_c4f1d55b_1487_484b_9174_883ba0cf4747 rdf:type owl:Class ;
+                                               owl:equivalentClass [ owl:intersectionOf ( :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :OWLDataProperty_bab5ca2d_194f_4a14_bc12_1ff041f56cf9 ;
+                                                                                            owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                                 owl:withRestrictions ( [ xsd:maxExclusive "59"^^xsd:int
+                                                                                                                                        ]
+                                                                                                                                      )
+                                                                                                               ]
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 ;
+                                               owl:disjointWith :OWLClass_dc8cde33_351f_45a0_badc_96de88200f8d ;
+                                               rdfs:label "court-métrage"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643
+:OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 rdf:type owl:Class ;
+                                               rdfs:label "film"@fr ,
+                                                          "movie"@en .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_dc8cde33_351f_45a0_badc_96de88200f8d
+:OWLClass_dc8cde33_351f_45a0_badc_96de88200f8d rdf:type owl:Class ;
+                                               owl:equivalentClass [ owl:intersectionOf ( :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :OWLDataProperty_bab5ca2d_194f_4a14_bc12_1ff041f56cf9 ;
+                                                                                            owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                 owl:onDatatype xsd:int ;
+                                                                                                                 owl:withRestrictions ( [ xsd:minExclusive "59"^^xsd:int
+                                                                                                                                        ]
+                                                                                                                                      )
+                                                                                                               ]
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 ;
+                                               rdfs:label "long-métrage"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_dca65999_414f_4fec_8a01_62504a966632
+:OWLClass_dca65999_414f_4fec_8a01_62504a966632 rdf:type owl:Class ;
+                                               owl:equivalentClass [ owl:intersectionOf ( :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :OWLObjectProperty_ae61337c_28e1_4c23_8cc2_34f273b684d1 ;
+                                                                                            owl:someValuesFrom [ owl:intersectionOf ( :OWLClass_2c4e1a41_4130_4a42_ae30_4833a0d7ff64
+                                                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                                                        owl:onProperty :OWLObjectProperty_72d0af74_326e_490a_a8df_6b2a4dbcb3da ;
+                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( :OWLClass_1cbdf6b7_5e47_422e_a094_b684ef64080b
+                                                                                                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                                                                                                    owl:onProperty :OWLObjectProperty_0521fe60_92b4_486d_81fe_f9fb7b672a0e ;
+                                                                                                                                                                                    owl:hasValue :OWLNamedIndividual_330bfd44_dd30_4fd5_b240_1837d30fc0e4
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ) ;
+                                                                                                                                                             rdf:type owl:Class
+                                                                                                                                                           ]
+                                                                                                                                      ]
+                                                                                                                                    ) ;
+                                                                                                                 rdf:type owl:Class
+                                                                                                               ]
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643 ;
+                                               rdfs:label "européen"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_ee26ac4e_0882_493a_b9dc_080a0481afdb
+:OWLClass_ee26ac4e_0882_493a_b9dc_080a0481afdb rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_b651e36a_cd79_40c6_99a9_5b426e6bcd60 ;
+                                               rdfs:label "continent"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLClass_ee41b92c_2158_424c_b77f_835c97014460
+:OWLClass_ee41b92c_2158_424c_b77f_835c97014460 rdf:type owl:Class ;
+                                               owl:equivalentClass [ owl:intersectionOf ( :OWLClass_6586a65e_e610_41df_b66c_1a78ce5867eb
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :OWLObjectProperty_c2c2b761_cf92_4d70_9fd5_6e7c529e8142 ;
+                                                                                            owl:someValuesFrom :OWLClass_cad29b9d_f679_4548_b226_8dc2fdb83643
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_165eeaf3_7606_41b6_8aef_241dc73c65c9 ;
+                                               rdfs:label "actress"@en ,
+                                                          "actrice"@fr ,
+                                                          "comédienne"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#personne
+:personne rdf:type owl:Class ;
+          rdfs:label "person"@en ,
+                     "personne"@fr .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_2a36ed50_10fb_4ea8_8ab2_a2764b505fe8
+:OWLNamedIndividual_2a36ed50_10fb_4ea8_8ab2_a2764b505fe8 rdf:type owl:NamedIndividual ;
+                                                         rdfs:label "Michel Hazanavicus"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_330bfd44_dd30_4fd5_b240_1837d30fc0e4
+:OWLNamedIndividual_330bfd44_dd30_4fd5_b240_1837d30fc0e4 rdf:type owl:NamedIndividual ;
+                                                         rdfs:label "Europe"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_7e73aba3_5f07_4080_a00b_3ef36822f6a3
+:OWLNamedIndividual_7e73aba3_5f07_4080_a00b_3ef36822f6a3 rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_72d0af74_326e_490a_a8df_6b2a4dbcb3da :OWLNamedIndividual_9ac6309c_b214_4ee4_9480_eca71f41e4c1 ;
+                                                         rdfs:label "française"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_8731f3af_ab2f_452c_b561_9da949fcc6e3
+:OWLNamedIndividual_8731f3af_ab2f_452c_b561_9da949fcc6e3 rdf:type owl:NamedIndividual ,
+                                                                  :OWLClass_1cbdf6b7_5e47_422e_a094_b684ef64080b ;
+                                                         rdfs:label "Monaco"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_89afa387_9d29_4b06_abe6_01a25795451c
+:OWLNamedIndividual_89afa387_9d29_4b06_abe6_01a25795451c rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_ae61337c_28e1_4c23_8cc2_34f273b684d1 :OWLNamedIndividual_7e73aba3_5f07_4080_a00b_3ef36822f6a3 ;
+                                                         :OWLObjectProperty_b7988013_850b_4109_ae2a_bc274cde70b8 :OWLNamedIndividual_2a36ed50_10fb_4ea8_8ab2_a2764b505fe8 ;
+                                                         :OWLDataProperty_bab5ca2d_194f_4a14_bc12_1ff041f56cf9 100 ;
+                                                         rdfs:label "The Artist"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_9ac6309c_b214_4ee4_9480_eca71f41e4c1
+:OWLNamedIndividual_9ac6309c_b214_4ee4_9480_eca71f41e4c1 rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_0521fe60_92b4_486d_81fe_f9fb7b672a0e :OWLNamedIndividual_330bfd44_dd30_4fd5_b240_1837d30fc0e4 ;
+                                                         :OWLObjectProperty_bafdd03c_b8fd_4f81_a44c_8a557c8c9617 :OWLNamedIndividual_a6b76d24_ef31_4e81_9ae5_b8c7c159f319 ;
+                                                         rdfs:label "France"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_9c0d7982_118e_4ff7_8998_9e94551b206d
+:OWLNamedIndividual_9c0d7982_118e_4ff7_8998_9e94551b206d rdf:type owl:NamedIndividual ;
+                                                         rdfs:label "Woody Allen"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_a6b76d24_ef31_4e81_9ae5_b8c7c159f319
+:OWLNamedIndividual_a6b76d24_ef31_4e81_9ae5_b8c7c159f319 rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_0521fe60_92b4_486d_81fe_f9fb7b672a0e :OWLNamedIndividual_9ac6309c_b214_4ee4_9480_eca71f41e4c1 ;
+                                                         rdfs:label "Paris"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_cdf1749d_6625_46f4_9a68_ffbee02bd3b3
+:OWLNamedIndividual_cdf1749d_6625_46f4_9a68_ffbee02bd3b3 rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_c2c2b761_cf92_4d70_9fd5_6e7c529e8142 :OWLNamedIndividual_89afa387_9d29_4b06_abe6_01a25795451c ;
+                                                         :OWLDataProperty_99d8808c_3537_4d28_be07_06b544a9a9da "féminin"^^xsd:string ;
+                                                         rdfs:label "Bérénice Bejo"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_d88214a6_cc31_4cc5_8173_319ed1e2ae9d
+:OWLNamedIndividual_d88214a6_cc31_4cc5_8173_319ed1e2ae9d rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_ae61337c_28e1_4c23_8cc2_34f273b684d1 :OWLNamedIndividual_7e73aba3_5f07_4080_a00b_3ef36822f6a3 ;
+                                                         :OWLObjectProperty_b7988013_850b_4109_ae2a_bc274cde70b8 :OWLNamedIndividual_9c0d7982_118e_4ff7_8998_9e94551b206d ;
+                                                         :OWLObjectProperty_cdc7f460_d53c_406a_a29a_7f89098501e7 :OWLNamedIndividual_a6b76d24_ef31_4e81_9ae5_b8c7c159f319 ;
+                                                         rdfs:label "Midnight in Paris"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_e413b923_623b_4774_ae51_9f0e6f71bb84
+:OWLNamedIndividual_e413b923_623b_4774_ae51_9f0e6f71bb84 rdf:type owl:NamedIndividual ;
+                                                         rdfs:label "La ville lumière"@fr .
+
+
+###  http://www.semanticweb.org/m_laur/ontologies/2020/1/untitled-ontology-2#OWLNamedIndividual_fb75edb9_c919_4e65_92bf_a72ffb45ac59
+:OWLNamedIndividual_fb75edb9_c919_4e65_92bf_a72ffb45ac59 rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_c2c2b761_cf92_4d70_9fd5_6e7c529e8142 :OWLNamedIndividual_89afa387_9d29_4b06_abe6_01a25795451c ;
+                                                         :OWLDataProperty_99d8808c_3537_4d28_be07_06b544a9a9da "masculin"^^xsd:string ;
+                                                         rdfs:label "Jean Dujardin"@fr .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
